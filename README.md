@@ -127,7 +127,7 @@ require './pairs_search'
   end
 ```
 
-###Commandline Test
+###Command Line Test
 Let's go ahead and run through the execution of ```PairsSearch``` and see some results.
 ```
 $ ruby main.rb
