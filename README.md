@@ -8,6 +8,12 @@ pair of numbers as a number string in a value string array corresponding to the
 sum key.
 
 ###Classes and Methods: 
+|Class   | Description   |
+|--------|---------------|
+|Class   | PairsSearch - primary class for performing the search  |
+|   |Method  initialize(n) | builds a random unique array of integers, and indexes the pairs sum   |
+|   |   |   |   |   |
+
 **Class:** PairsSearch - primary class for performing the search.</br>
    *Methods:* initialize(n) - builds a random unique array of integers, and indexes the pairs sum.</br>
 	    (private) index_pairs_sum</br>
