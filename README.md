@@ -14,13 +14,6 @@ sum key.
 |**Method** | *initialize(n)*   | builds a random unique array of integers, and indexes the pairs sum |
 |**Method** | *index_pairs_sum* | performs all permuations of elements and computes sum               |
 |**Method** | *report(k)*       | returns all integer pairs that sum to k                             | 
-|                               |                                                                     |   
-
-**Class:** PairsSearch - primary class for performing the search.</br>
-   *Methods:* initialize(n) - builds a random unique array of integers, and indexes the pairs sum.</br>
-	    (private) index_pairs_sum</br>
-	    report(k) - returns all integer pairs that sum to k</br>
-**Class:** PairsStore - helper class for storing pairs of numbers and their sum key</br>
 
 ## Ruby Implementation
 We build our Ruby algorithm in TDD fashion using RSpec and call the project "pairs_search"
