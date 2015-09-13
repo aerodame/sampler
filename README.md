@@ -174,7 +174,7 @@ RSpec.configure do |config|
 end
 ```
 
-**File:** pairs_search_spec.rb
+**File:** pairs_search_spec.rb - this file contains all of our TDD test cases.
 ```Ruby
 require 'spec_helper'
 
