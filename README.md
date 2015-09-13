@@ -127,6 +127,35 @@ require './pairs_search'
   end
 ```
 
+###Commandline Test
+Let's go ahead and run through the execution of ```PairsSearch``` and see some results.
+```
+$ ruby main.rb
+ENTER number of integers to pair[3-100]:
+10
+ENTER sum value to search[4-200]:
+15
+Result: 3 sums found
+(5,10)
+(6,9)
+(7,8)
+
+$ ruby main.rb
+ENTER number of integers to pair[3-100]:
+25
+ENTER sum value to search[4-200]:
+15
+Result: 7 sums found
+(7,8)
+(3,12)
+(2,13)
+(4,11)
+(5,10)
+(1,14)
+(6,9)
+... and so on
+```
+
 ###TDD
 Finally we would ensure that we have test converage over our classes and methods.  We use the "RSpec" method and the first step is to initialize RSpec capability within our project folder.
 ```
