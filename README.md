@@ -8,13 +8,13 @@ pair of numbers as a number string in a value string array corresponding to the
 sum key.
 
 ###Classes and Methods: 
-|Element | Description   |
-|--------|---------------|
-|**Class** *PairsSearch* | primary class for performing the search  |
-|**Methods**  *initialize(n)** | builds a random unique array of integers, and indexes the pairs sum |
-|         *(private) index_pairs_sum* | performs all permuations of elements and computes sum   |
-|         *report(k)* | returns all integer pairs that sum to k                                 | 
-|                     |                                                                         |   
+|Element | Description        |                                                                     |
+|--------|--------------------|---------------------------------------------------------------------|
+|**Class** *PairsSearch*      | primary class for performing the search                             |
+|**Method** *initialize(n)*   | builds a random unique array of integers, and indexes the pairs sum |
+|**Method** *index_pairs_sum* | performs all permuations of elements and computes sum               |
+|**Method** *report(k)*       | returns all integer pairs that sum to k                             | 
+|                             |                                                                     |   
 
 **Class:** PairsSearch - primary class for performing the search.</br>
    *Methods:* initialize(n) - builds a random unique array of integers, and indexes the pairs sum.</br>
