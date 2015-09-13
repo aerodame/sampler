@@ -10,9 +10,11 @@ sum key.
 ###Classes and Methods: 
 |Class   | Description   |
 |--------|---------------|
-|Class   | PairsSearch - primary class for performing the search  |
-|   |Method  initialize(n) | builds a random unique array of integers, and indexes the pairs sum   |
-|   |   |   |   |   |
+|**PairsSearch** | primary class for performing the search  |
+|Method| **initialize(n)** | builds a random unique array of integers, and indexes the pairs sum |
+|      | **(private) index_pairs_sum** | performs all permuations of elements and computes sum   |
+|      | **report(k)** | returns all integer pairs that sum to k                                 | 
+|      |               |                                                                         |   
 
 **Class:** PairsSearch - primary class for performing the search.</br>
    *Methods:* initialize(n) - builds a random unique array of integers, and indexes the pairs sum.</br>
