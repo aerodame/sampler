@@ -31,18 +31,4 @@ public class Main {
 		PairsSearch p = new PairsSearch(n);
 		p.report(k);
 	}
-/*
-
-
-// might get nil from no matches, so catch that error if it occurs
-		try {
-// puts "Result: #{p.report(k).size} sums found"
-// p.report(k).each do |x| puts "(#{x})" end
-		}
-		catch (e)
-		{
-			System.out.println("no matches found");
-		}
-	}
-*/
 }
