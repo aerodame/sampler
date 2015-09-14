@@ -1,3 +1,4 @@
+# https://github.com/aerodame/sampler
 require './pairs_search'
 
   puts "ENTER number of integers to pair[3-100]:"

@@ -1,4 +1,4 @@
-# https://github.com/testdouble/contributing-tests/wiki/Greeting-Kata
+# https://github.com/aerodame/sampler
 require './pair_store'
 # ---------------------------------------------------------
 # PairsSearch - Given n to initialize an array of unique 

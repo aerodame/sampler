@@ -221,8 +221,200 @@ However, some environments require the use of Java as the preferred language. Th
 translate the ruby code by equivalent functionality and then compare performance and line count
 between the two.
 
-**Files:**  pairs_search.java - mainclass for performing the search.
-	pairs_store.java  - helper class for storing pairs of numbers and their sum key
+**File:** PairsSearch.java- primary class for performing the search
+```Java
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Vector;
+
+/* 
+* PairsSearch - Given n to initialize an array of unique 
+* 				random integers of size n, return all 
+*               instances of number unique pairs that 
+*               sum to k.
+*/
+public class PairsSearch {
+
+	private Integer n; 
+	private Integer[] nums;
+	private PairStore pairs;
+
+	public PairsSearch(Integer n) {
+		// create n random unique integers
+		this.n = n;
+		nums = rand_unique(n);
+		index_pairs_sum();
+		// pairs.dump_map();
+	}
+
+	public void report(Integer k) {
+		System.out.println("ans: "+pairs.get_pairs(k));
+	}
+
+	private void index_pairs_sum() {
+		pairs = new PairStore();
+		// index all pairs
+		for(int i=0; i < n; i++) {
+			// never sum same pairs
+			for(int j=i+1; j < n; j++) {
+				int x = nums[i];
+				int y = nums[j];
+				// only store (x,y) => where x < y
+				if(x>y) {
+					int tmp = x;
+					x = y;
+					y = tmp;
+				}
+				pairs.insert(x,y);
+			}
+		}
+	}
+
+	// Generate n random unique integers between 1 and n
+	private Integer[] rand_unique(Integer n) {
+
+		Random rand = new Random();
+		Integer[] return_array = new Integer[n];
+
+		int j = 0;
+        // keep scanning for new random numbers until array is full
+		while (j < n) {
+			Integer e = rand.nextInt(n+1);
+
+            // add only non-zero unique numbers
+			if (e == 0) continue;
+
+			// check to see if e is already in return_array
+			boolean not_found = true;	
+			for(int i=0; i < n; i++) {
+				// if any elements in array are already there then bail
+				if (e == return_array[i]) {
+					not_found = false;
+					break;
+				} 
+			}
+			// clear to write another element
+			if(not_found) {
+				return_array[j] = e;
+				j++;
+			}
+		}
+		return return_array;
+	}
+}
+```
+
+**File:** PairStore.java - helper class for storing pairs of numbers and their sum key
+```Java
+import java.util.Map;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Arrays;
+import java.util.Vector;
+
+/* 
+* PairStore - Storing pairs of numbers and their sum key
+*/
+public class PairStore {
+//	private Map<Integer, Array> T;
+	private Map<Integer, Vector<String>> T;
+
+	// Create a hash table for our sums and pairs
+	public PairStore() {
+		T = new HashMap<Integer, Vector<String>>();
+	}
+
+	// get any pairs at key = k
+	public String get_pairs(int k) {
+		return T.get(k).toString();
+	}
+
+	// dump map
+	public void dump_map() {
+		System.out.println("Dump HashMap["+T.size()+"]");
+
+		// Dump the entire HashMap
+		Set<Map.Entry<Integer, Vector<String>>> set = T.entrySet();
+		for (Map.Entry<Integer, Vector<String>> x : set) {
+			Vector<String> v = x.getValue();
+			System.out.println("T["+x.getKey()+"]: " + v.toString());
+		}
+	}		
+	// Insert pair and sum
+	public void insert(int x, int y) {
+		Integer sum = x+y;
+		// get the Vector (if it exists) then append the new string
+		Vector<String> w = T.get(sum);
+		if(w == null) {
+			Vector<String> v = new Vector<String>();
+			v.add("("+x+","+y+")");
+			T.put(sum, v);
+		} else {
+			w.add("("+x+","+y+")");
+			T.put(sum, w);
+		}
+	}
+}
+```
+
+**File:** Main.java - Command line test file for entering size and search params
+```Java
+import java.io.Console;
+import java.io.IOException;
+
+public class Main {
+
+	public static void main (String args[]) throws IOException {
+		 
+		Console c = System.console();
+		if (c == null) {
+			System.err.println("No console.");
+			System.exit(1);
+		}
+
+		String strN = c.readLine("ENTER number of integers to pair[3-100]: ");
+		Integer n = Integer.parseInt(strN);
+		if ((n < 3) || (n > 100)) {
+			System.err.println("Illegal number of values");
+			System.exit(1);
+		}
+
+		String strK = c.readLine("ENTER sum value to search[4-200]: ");
+		Integer k = Integer.parseInt(strK);
+
+		if ((k < 4) || (k > 200)) {
+			System.err.println("Illegal sum value");
+			System.exit(1);
+		}
+		
+		PairsSearch p = new PairsSearch(n);
+		p.report(k);
+	}
+}
+```
+
+###Compile Shell Script
+```
+#!/bin/sh
+javac PairsSearch.java
+javac PairStore.java
+javac Main.java
+```
+
+###Command Line Test
+Let's go ahead and run through the execution of ```PairsSearch``` and see some results.
+```
+$ java Main
+ENTER number of integers to pair[3-100]: 5
+ENTER sum value to search[4-200]: 6
+ans: [(2,4), (1,5)]
+
+$ java Main
+ENTER number of integers to pair[3-100]: 10
+ENTER sum value to search[4-200]: 10
+ans: [(2,8), (1,9), (4,6), (3,7)]
+
+```
 
 ## Dockerize!
 Now finally, we will take everything we've learned above in our "polyglot" adventure and apply this to 
@@ -230,5 +422,5 @@ creating a *Dockerized* Linux container implementation of PairsSearch.  The basi
 be to create a simple web server that can take 2 inputs from a browser page and then render an output
 that is equivalent to our command line language versions, but in HTML to the user's webpage.
 
-
+To Be Continued...
 
