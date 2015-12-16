@@ -415,12 +415,3 @@ ENTER sum value to search[4-200]: 10
 ans: [(2,8), (1,9), (4,6), (3,7)]
 
 ```
-
-## Dockerize!
-Now finally, we will take everything we've learned above in our "polyglot" adventure and apply this to 
-creating a *Dockerized* Linux container implementation of PairsSearch.  The basic design approach will
-be to create a simple web server that can take 2 inputs from a browser page and then render an output
-that is equivalent to our command line language versions, but in HTML to the user's webpage.
-
-To Be Continued...
-
