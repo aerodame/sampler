@@ -127,7 +127,7 @@ require './pairs_search'
   end
 ```
 
-###Command Line Test
+### Command Line Test
 Let's go ahead and run through the execution of ```PairsSearch``` and see some results.
 ```
 $ ruby main.rb
@@ -156,7 +156,7 @@ Result: 7 sums found
 ... and so on
 ```
 
-###TDD
+### TDD
 Finally we would ensure that we have test converage over our classes and methods.  We use the "RSpec" method and the first step is to initialize RSpec capability within our project folder.
 ```
 $ rspec --init
@@ -205,7 +205,7 @@ describe PairsSearch do
 	end	
 end
 ```
-###TDD Execution
+### TDD Execution
 Now, to run our TDD tests we simply type
 ```
 $ rspec
@@ -393,7 +393,7 @@ public class Main {
 }
 ```
 
-###Compile Shell Script
+### Compile Shell Script
 ```
 #!/bin/sh
 javac PairsSearch.java
@@ -401,7 +401,7 @@ javac PairStore.java
 javac Main.java
 ```
 
-###Command Line Test
+### Command Line Test
 Let's go ahead and run through the execution of ```PairsSearch``` and see some results.
 ```
 $ java Main
