@@ -18,7 +18,7 @@ sum key.
 ## Ruby Implementation
 We build our Ruby algorithm in TDD fashion using RSpec and call the project "pairs_search".
 
-### File Design
+### File Design:
 |File    | Description                                                                          |
 |--------|----------------|---------------------------------------------------------------------|
 |**pairs_search.rb**      |main class for performing the search                                 |
