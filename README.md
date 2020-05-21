@@ -7,7 +7,7 @@ Build a hash where the sum of all pair purmutations are hash keys.  Record each
 pair of numbers as a number string in a value string array corresponding to the 
 sum key.
 
-### Classes and Methods: 
+### Classes and Methods 
 |Element | Description          |                                                                     |
 |--------|----------------------|---------------------------------------------------------------------|
 |**Class**  | *PairsSearch*     | primary class for performing the search                             |
@@ -18,8 +18,8 @@ sum key.
 ## Ruby Implementation
 We build our Ruby algorithm in TDD fashion using RSpec and call the project "pairs_search".
 
-### File Design:
-|File    | Description                                                                          |
+### File Design
+|File    | Description    |                                                                     |
 |--------|----------------|---------------------------------------------------------------------|
 |**pairs_search.rb**      |main class for performing the search                                 |
 |**pair_store.rb**        |helper class for storing pairs of numbers and their sum key          |
