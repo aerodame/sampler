@@ -1,5 +1,7 @@
 """
-PairStore - Storing pairs of numbers and their sum key
+PairsStore - Storing pairs of numbers and their sum key.   Note that this is a general purpose
+pairs store that could store pairs for numerous keys (hence the use of a Hashmap).  A simpler
+version of this would just be a list to store pairs for ONE key.
 """
 class PairsStore:
     def __init__(self):
@@ -12,11 +14,11 @@ class PairsStore:
 
 # dump hash map
     def dump_map(self):
-        print(f'Dump HashMap[{len(self.T)}')
+        print(f'Dump HashMap of {len(self.T)} sums')
 
         # Dump the entire HashMap
         for k in self.T:
-            print(k, self.T[k])
+            print(f'sum:{k}, pairs: {self.T[k]}')
 
     # Insert pair and sum (sum is the key in the HashMap)
     def insert(self, x, y):
