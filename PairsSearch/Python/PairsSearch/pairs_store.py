@@ -8,15 +8,16 @@ class PairsStore:
         # Initialize a HashMap ƒor our sums and pairs
         self.T = {}
 
-# get any pairs at key = k
+    # get any pairs at key = k
     def get_pairs(self, k):
-        return self.T[k]
+        if k in self.T:
+            return self.T[k]
+        else:
+            return [None] 
 
-# dump hash map
+    # dump hash map
     def dump_map(self):
         print(f'Dump HashMap of {len(self.T)} sums')
-
-        # Dump the entire HashMap
         for k in self.T:
             print(f'sum:{k}, pairs: {self.T[k]}')
 

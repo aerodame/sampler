@@ -1,37 +1,30 @@
-import random
+from pairs_store import PairsStore
 """
-PairsStore - Storing pairs of numbers and their sum key.   Note that this is a general purpose
-pairs store that could store pairs for numerous keys (hence the use of a Hashmap).  A simpler
-version of this would just be a list to store pairs for ONE key.
+## Given a list of sorted unique integers, return a tuple list of pairs that sum to K
 """
 class PairsSearch(object):
-    def __init__(self, n=3, m=10):
+    def __init__(self, nums, K):
         # Initialize a HashMap ƒor our sums and pairs
-        self.n = n
-        self.m = m
-        self.nums = self.__rand_unique(n,m)
+        self.pairs = PairsStore()
+        self.nums = nums
+        self.K = K
 
-    def __rand_unique(self,n,m) -> list[int]:
-        if (n > m):
-            return [None]
-        else:
-            rary = [None] * n
-            j = 0
-            # keep scanning for new random numbers until array is full
-            while (j < n):
-                r = int(random.random()*m)
+    def run(self):
+        N = len(self.nums)
+        print(f'Number list:{self.nums}')
 
-                # add only non-zero unique numbers
-                if (r == 0): continue	
+        for i in range(N):
+            # never sum same pairs
+            for j in range(i,N-i):
+                x = self.nums[i]
+                y = self.nums[j]
 
-                not_found = True
-                for i in range(n):
-                    # if any elements in array are already there then bail
-                    if (r == rary[i]):   
-                        not_round = False 
-                        break 
-                # clear to store another unique random int    
-                if(not_found):
-                    rary[j] = r 
-                    j = j+1
-            return sorted(rary)            
+                # if x and y sum to K then store the pair in the list
+                if (x + y) == self.K:
+                    if( x > y):
+                        tmp = x
+                        x = y
+                        y = tmp
+                    print(f'i:{i} j:{j} x:{x} y:{y} sum:{x+y}')
+                    self.pairs.insert(x,y)
+        return self.pairs.get_pairs(self.K)            
