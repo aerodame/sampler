@@ -11,11 +11,9 @@ class ThreeSum:
         hits = []
         none_found = True
         for i in range(len(nums)-1):
-            ii = i + 1
-            for j in range(ii, len(nums)-1):
-                jj = j+1
-                for k in range(jj, len(nums)):
-                    sum = nums[i]+ nums[j] + nums[k]
+            for j in range(i+1, len(nums)-1):
+                for k in range(j+1, len(nums)):
+                    sum = nums[i] + nums[j] + nums[k]
                     # print(f'iter:{count} -> i:{i} j:{j} k:{k} sum:{sum}')
                     if (sum == 0):
                         none_found = False
